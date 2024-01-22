@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Random;
 
-public class Affirmations {
+public class AffirmationGenerator {
     private static final List<String> AFFIRMATIONS = List.of(
             "I have improved my programming ability over time.",
             "If I improve 1% a day, my abilities will double in 70 days.",
@@ -12,17 +12,23 @@ public class Affirmations {
     );
 
     /**
-     * Returns a positive affirmation.
-     *
-     * @return a positive affirmation
+     * Creates an affirmation generator.
      */
-    public static String getAffirmation() {
+    public AffirmationGenerator() {}
+
+    /**
+     * Returns an affirmation.
+     *
+     * @return an affirmation
+     */
+    public String getAffirmation() {
         Random random = new Random();
         int index = random.nextInt(AFFIRMATIONS.size() + 1);
         return AFFIRMATIONS.get(index);
     }
 
     public static void main(String[] args) {
-        System.out.println(Affirmations.getAffirmation());
+        AffirmationGenerator generator = new AffirmationGenerator();
+        System.out.println(generator.getAffirmation());
     }
 }
